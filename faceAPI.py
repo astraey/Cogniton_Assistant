@@ -56,9 +56,10 @@ class FaceAPI:
 
 
 
-            print ('Response:')
+            #print ('Response:')
             parsed = json.loads(response.text)
-            print (json.dumps(parsed, sort_keys=True, indent=2))
+            #print (json.dumps(parsed, sort_keys=True, indent=2))
+            return parsed
 
         except Exception as e:
             print('Error:')
