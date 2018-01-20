@@ -51,6 +51,7 @@ except Exception as e:
 
 ####################################
 
+"""
 ########### Python 3.6 #############
 import http.client, urllib.request, urllib.parse, urllib.error, base64, requests, json
 
@@ -98,5 +99,8 @@ try:
 except Exception as e:
     print('Error:')
     print(e)
+
+
+"""
 
 ####################################    
