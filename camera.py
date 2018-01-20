@@ -1,7 +1,18 @@
 import cv2
 
-camera = cv2.VideoCapture(0)
-for i in range(10):
-    return_value, image = camera.read()
-    cv2.imwrite('opencv'+str(i)+'.png', image)
-del(camera)
+class Camera:
+    def __init__(self):
+        self.camera = cv2.VideoCapture(0)
+
+    def takePicture(self,savePictrure=False):
+        print("This is a message inside the class.")
+
+        self.camera = cv2.VideoCapture(0)
+        return_value, image = self.camera.read()
+        if savePictrure:
+            cv2.imwrite('image.png', image)
+
+        return image
+
+    def closeCamera(self):
+        del(self.camera)
