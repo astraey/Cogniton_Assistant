@@ -2,8 +2,9 @@ from camera import Camera
 from faceAPI import FaceAPI
 
 camera = Camera()
-image = camera.takePicture(True)
-
 faceAPI = FaceAPI()
 
-faceAPI.sendPicture(image)
+picTaken = camera.takePicture(True)
+
+if picTaken:
+	faceAPI.sendPicture(camera.picName)
