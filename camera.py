@@ -10,9 +10,9 @@ class Camera:
         self.camera = cv2.VideoCapture(0)
         return_value, image = self.camera.read()
         if savePictrure:
-            cv2.imwrite('image.png', image)
-
-        return image
+            cv2.imwrite('image.jpg', image)
+            #print(image)
+        return return_value   
 
     def closeCamera(self):
         del(self.camera)

@@ -45,8 +45,8 @@ class FaceAPI:
         #body = pd.Series(picture).to_json(orient='values')
         #body = picture
 
-        #with open(picture,'rb') as f:
-        #    temp = f.read()
+        with open(picture,'rb') as f:
+            temp = f.read()
         
 
 
