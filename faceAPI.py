@@ -52,9 +52,8 @@ class FaceAPI:
 
         try:
             # Execute the REST API call and get the response.
-            response = requests.request('POST', self.uri_base + '/face/v1.0/detect', json=body, data=None, headers=headers, params=params)
-
-
+            #response = requests.request('POST', self.uri_base + '/face/v1.0/detect', json=body, data=None, headers=headers, params=params)
+            response = requests.request('POST', self.uri_base + '/face/v1.0/detect', data=temp, headers=headers, params=params)
 
             print ('Response:')
             parsed = json.loads(response.text)
