@@ -24,12 +24,12 @@ class FaceAPI:
         self.uri_base = 'https://westcentralus.api.cognitive.microsoft.com'
 
 
-    def sendPicture(self, picture):
+    def sendPicture(self, pictureName):
 
 
         # Request headers.
         headers = {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/octet-stream',
             'Ocp-Apim-Subscription-Key': self.subscription_key,
         }
 
@@ -41,19 +41,20 @@ class FaceAPI:
         }
 
         # Body. The URL of a JPEG image to analyze.
-        body = {'url': 'https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg'}
+        #body = {'url': 'https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg'}
         #body = pd.Series(picture).to_json(orient='values')
         #body = picture
 
-        with open(picture,'rb') as f:
-            temp = f.read()
+        with open(pictureName,'rb') as f:
+            picture = f.read()
         
 
 
         try:
             # Execute the REST API call and get the response.
-            #response = requests.request('POST', self.uri_base + '/face/v1.0/detect', json=body, data=None, headers=headers, params=params)
-            response = requests.request('POST', self.uri_base + '/face/v1.0/detect', data=temp, headers=headers, params=params)
+            response = requests.request('POST', self.uri_base + '/face/v1.0/detect', data=picture, headers=headers, params=params)
+
+
 
             print ('Response:')
             parsed = json.loads(response.text)
