@@ -6,7 +6,7 @@ import time
 camera = Camera()
 faceAPI = FaceAPI()
 beeper = Beeper()
-endTime = time.time() + 60
+endTime = time.time() + 60*10
 
 while time.time() < endTime:
 
